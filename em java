@@ -1,0 +1,46 @@
+import java.util.*;
+
+public class SurprisingCode {
+    public static void main(String[] args) {
+        // Criando um objeto Scanner para receber entrada do usuário
+        Scanner scanner = new Scanner(System.in);
+
+        // Solicitando ao usuário que insira um número inteiro positivo
+        System.out.print("Digite um número inteiro positivo: ");
+        int input = scanner.nextInt();
+
+        // Validando se o número é positivo
+        if (input > 0) {
+            System.out.println("Obrigado por fornecer um número positivo!");
+
+            // Invertendo o número digitado
+            int reversedNumber = reverseNumber(input);
+            System.out.println("Número invertido: " + reversedNumber);
+
+            // Verificando se o número é palíndromo
+            if (input == reversedNumber) {
+                System.out.println("Esse número é um palíndromo!");
+            } else {
+                System.out.println("Esse número não é um palíndromo!");
+            }
+        } else {
+            System.out.println("O número fornecido não é positivo. Por favor, tente novamente.");
+        }
+
+        // Fechando o objeto Scanner
+        scanner.close();
+    }
+
+    // Método para inverter um número
+    public static int reverseNumber(int number) {
+        int reversedNumber = 0;
+
+        while (number != 0) {
+            int remainder = number % 10;
+            reversedNumber = reversedNumber * 10 + remainder;
+            number /= 10;
+        }
+
+        return reversedNumber;
+    }
+}
